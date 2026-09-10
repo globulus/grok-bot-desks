@@ -1,0 +1,15 @@
+{
+  "name": "grok-bot-desks",
+  "description": "Flutter Mobile Engineer, Bug Repro Desk, and Job Application Desk skills. Never send, merge, submit, or invent facts without an explicit yes.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Gordan Glavaš",
+    "url": "https://github.com/globulus"
+  },
+  "keywords": [
+    "flutter",
+    "mobile",
+    "bug-reproduction",
+    "job-application"
+  ]
+}

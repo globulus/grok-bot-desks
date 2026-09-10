@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "grok-bot-desks",
+  "version": "1.0.0",
+  "description": "Wave-1 Grok Bot desks: Flutter Mobile Engineer, Bug Repro Desk, and Job Application Desk. Skills only; never send, merge, submit, or invent facts without an explicit yes.",
+  "author": {
+    "name": "Gordan Glavaš",
+    "url": "https://github.com/globulus"
+  },
+  "homepage": "https://github.com/globulus/grok-bot-desks",
+  "repository": "https://github.com/globulus/grok-bot-desks",
+  "license": "MIT",
+  "keywords": [
+    "flutter",
+    "mobile",
+    "bug-reproduction",
+    "job-application",
+    "resume",
+    "grok-bot",
+    "app-store"
+  ]
+}
