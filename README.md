@@ -1,6 +1,6 @@
 # grok-bot-desks
 
-Agent Plugin (skills) for three [Grok Bot](https://x.ai/bot/marketplace) templates, published by [globulus](https://github.com/globulus).
+Agent Plugin (skills) for three [Grok Bot](https://x.ai/bot/marketplace) templates. Author: [globulus](https://github.com/globulus). Live clone: [gordan-glavas-codecons/grok-bot-desks](https://github.com/gordan-glavas-codecons/grok-bot-desks) until the globulus transfer is accepted ([OWNERSHIP.md](OWNERSHIP.md)).
 
 | Bot | Category | Listing |
 |-----|----------|---------|
@@ -34,7 +34,7 @@ Requires the [Grok Bot](https://docs.x.ai/grok-bot/bots) app.
 
 1. New → Create new agent.
 2. Bot actions → Edit Profile: name, title, description from `bots/*.md`.
-3. Paste the **First message** from that file.
+3. Paste the **First message** from that file (it clones https://github.com/gordan-glavas-codecons/grok-bot-desks).
 4. Iterate until the dry run matches [fixtures/expected-dry-run.md](fixtures/expected-dry-run.md).
 5. Share as template → strip secrets (checklists in each bot file) → copy the public x.ai link into `dist/SHARE_LINKS.md`.
 6. Add the template on a fresh Bot copy and confirm first-run still works.

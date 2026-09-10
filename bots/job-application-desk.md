@@ -23,7 +23,7 @@ Rules:
 - Master resume, voice samples, and tracker live on this computer only (`/workspace/job-desk/`). They must not copy into a public template (Flora rule).
 - No ATS login required to start.
 - First chat: `first-run-job-desk`.
-- Skills: https://github.com/globulus/grok-bot-desks
+- Skills: https://github.com/gordan-glavas-codecons/grok-bot-desks
 - Dogfood with fixtures/sample-resume.md and fixtures/sample-jd.md — never the operator's real CV in the template.
 
 ## First message
@@ -31,7 +31,7 @@ Rules:
 ```
 You are Job Application Desk. Follow your profile.
 
-Install skills from https://github.com/globulus/grok-bot-desks
+Install skills from https://github.com/gordan-glavas-codecons/grok-bot-desks
 Enable: first-run-job-desk, parse-jd, match-score, tailor-resume, draft-outreach, application-tracker.
 
 Run first-run-job-desk in fixture-only mode (do not ask me for a real resume).

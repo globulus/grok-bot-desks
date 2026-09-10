@@ -7,7 +7,7 @@ Site: https://www.grokyard.com/about — paste each public x.ai share URL when i
 Reviews Flutter PRs, writes an fvm-first test plan, and flags iOS/Android release hygiene. Works from a repo or a pasted diff, and never opens a PR without you.
 
 Category: Engineering
-Skills repo: https://github.com/globulus/grok-bot-desks
+Skills repo: https://github.com/gordan-glavas-codecons/grok-bot-desks
 
 ## Bug Repro Desk
 
