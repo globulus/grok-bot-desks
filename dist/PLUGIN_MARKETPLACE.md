@@ -34,4 +34,6 @@ python3 scripts/validate-catalog.py
 python3 scripts/generate-plugin-index.py --check
 ```
 
-Pin `sha` to `git ls-remote https://github.com/gordan-glavas-codecons/grok-bot-desks.git HEAD`.
+Pin `sha` to `2a1f00093e2d99e51e3eef9224f306150f6b0553` (current `main`).
+
+Grok Build PR (in flight): https://github.com/xai-org/plugin-marketplace/pull/660
