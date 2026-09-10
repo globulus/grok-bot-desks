@@ -2,7 +2,7 @@
 
 ## Cursor
 
-1. Repo must be public: https://github.com/gordan-glavas-codecons/grok-bot-desks (move to globulus when that account can own it; see OWNERSHIP.md)
+1. Repo must be public: https://github.com/globulus/grok-bot-desks (move to globulus when that account can own it; see OWNERSHIP.md)
 2. Submit at https://cursor.directory/ and/or https://cursor.com/marketplace/publish
 3. Open source, MIT, skills only (no MCP secrets)
 
@@ -17,10 +17,10 @@ After this repo is public, open a PR that appends one entry to `.grok-plugin/mar
   "category": "development",
   "source": {
     "source": "url",
-    "url": "https://github.com/gordan-glavas-codecons/grok-bot-desks.git",
+    "url": "https://github.com/globulus/grok-bot-desks.git",
     "sha": "PIN_FULL_40_CHAR_SHA_AFTER_PUSH"
   },
-  "homepage": "https://github.com/gordan-glavas-codecons/grok-bot-desks",
+  "homepage": "https://github.com/globulus/grok-bot-desks",
   "keywords": ["grok-bot-desks", "flutter", "bug-repro", "job-application"],
   "domains": ["github.com"]
 }

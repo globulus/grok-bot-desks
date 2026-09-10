@@ -2,7 +2,7 @@
 
 ## Done from this environment
 
-- Public repo: https://github.com/gordan-glavas-codecons/grok-bot-desks
+- Public repo: https://github.com/globulus/grok-bot-desks
 - Intended owner: [globulus](https://github.com/globulus) — see [OWNERSHIP.md](../OWNERSHIP.md)
 - Grok Build catalog PR: https://github.com/xai-org/plugin-marketplace/pull/660
 - Fixture dry-runs: [fixtures/dry-runs/](../fixtures/dry-runs/)
@@ -17,5 +17,5 @@
 
 ## Needs a signed-in browser
 
-- Cursor Directory: https://cursor.directory/plugins/new — paste `https://github.com/gordan-glavas-codecons/grok-bot-desks`
+- Cursor Directory: https://cursor.directory/plugins/new — paste `https://github.com/globulus/grok-bot-desks`
 - Official Cursor Marketplace: https://cursor.com/marketplace/publish
