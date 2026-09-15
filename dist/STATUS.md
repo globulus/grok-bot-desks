@@ -4,7 +4,7 @@
 
 - Public repo: https://github.com/globulus/grok-bot-desks
 - Intended owner: [globulus](https://github.com/globulus)
-- Grok Build catalog PR: https://github.com/xai-org/plugin-marketplace/pull/728 (replaces closed [#660](https://github.com/xai-org/plugin-marketplace/pull/660); pin `06494f201bb2263c1a958d78c152394c819fde96`)
+- Grok Build catalog PR: https://github.com/xai-org/plugin-marketplace/pull/729 (from **globulus**; replaces closed #660/#728; pin `9a2781bd34ed84c99e6b3dd07a1aa9bbebe87180`)
 - Fixture dry-runs / golden packs: [testpacks/](../testpacks/) (see [testkit/README.md](../testkit/README.md))
 - Grokyard/X copy ready in this folder (needs x.ai share links)
 
