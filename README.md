@@ -24,8 +24,21 @@ Wave 2 (App Store Ship + backlog): [wave2/README.md](wave2/README.md).
 plugin.json
 skills/…/SKILL.md
 bots/          # Grok Bot profiles and first messages
-fixtures/      # fake ticket, resume, JD — no PII
+testkit/       # generic validate / serve / score harness
+testpacks/     # per-bot fixtures, mock sites, scenarios, rubrics
 dist/          # Grokyard, X, marketplace submission text
+```
+
+## Test harness
+
+Generic library + per-bot packs: [testkit/README.md](testkit/README.md).
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+python3 -m pip install -e ./testkit
+python3 -m grok_bot_testkit validate
+python3 -m grok_bot_testkit serve --pack job-application-desk
+python3 -m grok_bot_testkit score --pack job-application-desk testpacks/job-application-desk/golden/sample-run
 ```
 
 ## Create the three Bots (Grok Bot app)
@@ -35,7 +48,7 @@ Requires the [Grok Bot](https://docs.x.ai/grok-bot/bots) app.
 1. New → Create new agent.
 2. Bot actions → Edit Profile: name, title, description from `bots/*.md`.
 3. Paste the **First message** from that file (it clones https://github.com/globulus/grok-bot-desks).
-4. Iterate until the dry run matches [fixtures/expected-dry-run.md](fixtures/expected-dry-run.md).
+4. Prefer harness mode (`testpacks/<bot-id>/scenario.md`) until the dry run matches [testpacks/expected-dry-run.md](testpacks/expected-dry-run.md) and `score` passes on the evidence pack.
 5. Share as template → strip secrets (checklists in each bot file) → copy the public x.ai link into `dist/SHARE_LINKS.md`.
 6. Add the template on a fresh Bot copy and confirm first-run still works.
 

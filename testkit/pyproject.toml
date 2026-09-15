@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grok-bot-testkit"
+version = "0.1.0"
+description = "Generic harness for Grok Bot dry-runs: mock sites, evidence packs, rubric scoring"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "PyYAML>=6.0",
+]
+
+[project.scripts]
+grok-bot-testkit = "grok_bot_testkit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+grok_bot_testkit = ["schema/*.json"]

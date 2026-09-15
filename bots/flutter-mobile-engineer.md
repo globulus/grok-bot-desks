@@ -35,7 +35,10 @@ Install or clone the skills from https://github.com/globulus/grok-bot-desks
 Enable: first-run-flutter-engineer, flutter-pr-review, flutter-test-plan, mobile-release-hygiene.
 
 Then run first-run-flutter-engineer.
-When first-run finishes, dry-run flutter-pr-review against fixtures/sample-flutter-issue.md in that repo (treat it as a pasted ticket plus implied small Flutter diff). Do not push or open a PR.
+When first-run finishes, prefer harness mode from testpacks/flutter-mobile-engineer/scenario.md
+(python3 -m grok_bot_testkit serve --pack flutter-mobile-engineer).
+Otherwise dry-run flutter-pr-review against testpacks/flutter-mobile-engineer/fixtures/sample-flutter-issue.md
+(and sample-diff.md). Do not push or open a PR. Write an evidence pack under /workspace/flutter-desk/runs/ when using the harness.
 ```
 
 ## Save-as-skill prompt (after a good dry run)

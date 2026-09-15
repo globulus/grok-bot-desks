@@ -23,12 +23,13 @@ First message after install, or the user says "set up".
 3. Ask for staging base URL. If they only have production, refuse automated login and offer paste-of-steps mode.
 4. Ask how test accounts work (shared staging user vs you create). For passwords: "use the secure secret request / take over the computer — do not paste the password here."
 5. Confirm skills: `repro-from-ticket`, `repro-from-screenshot`, `write-repro-pack`.
-6. Offer a dry run against `fixtures/sample-flutter-issue.md` in this plugin (no live login).
-7. Remind them: Bot description holds standing rules; their staging URL is local memory, strip it before Share as template.
+6. Offer a dry run against `testpacks/bug-repro-desk/fixtures/sample-flutter-issue.md` in this plugin (no live login).
+7. **Harness mode (preferred dogfood):** `python3 -m grok_bot_testkit serve --pack bug-repro-desk`, then follow `testpacks/bug-repro-desk/scenario.md`. Use fixture staging at `http://127.0.0.1:8767/staging/`. Write evidence under `/workspace/bug-repro/runs/<run-id>/`. Never POST `/tracker/comment`.
+8. Remind them: Bot description holds standing rules; their staging URL is local memory, strip it before Share as template.
 
 ## Output
 
-Checklist: tracker, staging, credential method, dry-run result, next command ("repro issue #…").
+Checklist: tracker, staging, credential method, dry-run/harness result, next command ("repro issue #…").
 
 ## Failure
 

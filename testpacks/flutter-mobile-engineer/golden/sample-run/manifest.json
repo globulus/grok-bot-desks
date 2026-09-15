@@ -1,0 +1,14 @@
+{
+  "bot_id": "flutter-mobile-engineer",
+  "pack_version": "1",
+  "skills_run": [
+    "first-run-flutter-engineer",
+    "flutter-pr-review",
+    "flutter-test-plan"
+  ],
+  "urls_hit": [
+    "http://127.0.0.1:8766/pr/sample"
+  ],
+  "started_at": "2026-09-10T12:00:00+00:00",
+  "finished_at": "2026-09-10T12:05:00+00:00"
+}

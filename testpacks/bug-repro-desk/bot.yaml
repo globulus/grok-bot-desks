@@ -1,0 +1,20 @@
+id: bug-repro-desk
+skills:
+  - first-run-bug-repro
+  - repro-from-ticket
+  - repro-from-screenshot
+  - write-repro-pack
+port: 8767
+evidence_root: /workspace/bug-repro/runs
+artifacts:
+  repro_pack: artifacts/repro-pack.md
+routes:
+  - path: /staging/
+    handler: static
+    file: staging-home.html
+  - path: /staging/counter
+    handler: static
+    file: staging-counter.html
+  - path: /tracker/comment
+    handler: log_post
+    log: tracker-posts.log

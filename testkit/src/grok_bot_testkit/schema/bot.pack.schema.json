@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/globulus/grok-bot-desks/testkit/schema/bot.pack.schema.json",
+  "title": "Grok Bot testpack bot.yaml",
+  "type": "object",
+  "required": ["id", "skills", "port", "evidence_root", "artifacts"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "skills": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "port": { "type": "integer", "minimum": 1024, "maximum": 65535 },
+    "evidence_root": { "type": "string", "minLength": 1 },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "handler"],
+        "properties": {
+          "path": { "type": "string" },
+          "handler": {
+            "type": "string",
+            "enum": ["static", "login_wall", "log_post", "health", "evidence", "reset"]
+          },
+          "file": { "type": "string" },
+          "log": { "type": "string" }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

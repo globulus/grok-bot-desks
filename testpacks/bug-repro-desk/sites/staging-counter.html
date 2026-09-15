@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Fixture counter</title>
+  <style>
+    body { font-family: system-ui; text-align: center; margin-top: 4rem; }
+    #count { font-size: 4rem; }
+    button { font-size: 2rem; border-radius: 999px; width: 4rem; height: 4rem; }
+  </style>
+</head>
+<body>
+  <p>Fixture staging counter</p>
+  <div id="count">0</div>
+  <button type="button" id="inc" title="Increment">+</button>
+  <script>
+    // Intentionally flaky-looking: first click ignored once per load
+    let armed = false;
+    let n = 0;
+    document.getElementById('inc').onclick = () => {
+      if (!armed) { armed = true; return; }
+      n += 1;
+      document.getElementById('count').textContent = String(n);
+    };
+  </script>
+</body>
+</html>

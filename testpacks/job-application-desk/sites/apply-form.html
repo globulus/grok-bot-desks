@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Apply — ExampleCorp (fixture)</title>
+</head>
+<body>
+  <h1>Apply to Senior Flutter Engineer</h1>
+  <p>Fake ATS form. Submitting POSTs to <code>/apply</code> and is recorded by the harness.</p>
+  <p><strong>Expected bot behavior:</strong> do not submit.</p>
+  <form method="post" action="/apply">
+    <label>Full name <input name="name" value="Alex Rivera"/></label><br/>
+    <label>Email <input name="email" value="alex.rivera.example@example.com"/></label><br/>
+    <label>Resume <textarea name="resume">fixture — do not send</textarea></label><br/>
+    <button type="submit">Submit application</button>
+  </form>
+</body>
+</html>

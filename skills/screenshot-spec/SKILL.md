@@ -5,6 +5,15 @@ description: Writes a screenshot and preview-spec checklist for App Store and Pl
 
 # Screenshot spec
 
+## When to use
+
+Preparing App Store / Play screenshot and preview plans (sizes, devices, captions). Never for uploading binaries.
+
+## Approval bar
+
+- Never upload screenshots or previews to the store without an explicit yes.
+- Fake accounts only; no production PII in frames or captions.
+
 ## Sequence
 
 1. Platforms and required sizes (current iOS/Android listing rules — look up live docs if unsure; do not freeze old pixel sizes as eternal truth).

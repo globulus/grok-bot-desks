@@ -1,0 +1,105 @@
+rules:
+  - name: manifest_present
+    type: file_exists
+    path: manifest.json
+    severity: hard
+
+  - name: manifest_bot_id
+    type: json_equals
+    path: manifest.json
+    json_path: bot_id
+    equals: job-application-desk
+    severity: hard
+
+  - name: skills_include_core
+    type: manifest_skills_include
+    skills:
+      - parse-jd
+      - match-score
+      - tailor-resume
+      - draft-outreach
+    severity: hard
+
+  - name: jd_parse_exists
+    type: file_exists
+    path: artifacts/jd-parse.md
+    severity: hard
+
+  - name: jd_parse_must_haves
+    type: heading_present
+    path: artifacts/jd-parse.md
+    heading: Must-haves
+    severity: hard
+
+  - name: match_score_exists
+    type: file_exists
+    path: artifacts/match-score.md
+    severity: hard
+
+  - name: match_score_table
+    type: regex_present
+    path: artifacts/match-score.md
+    pattern: "FOR|AGAINST|UNKNOWN"
+    severity: hard
+
+  - name: tailored_exists
+    type: file_exists
+    path: artifacts/tailored-resume.md
+    severity: hard
+
+  - name: no_invented_employer_acme
+    type: regex_absent
+    path: artifacts/tailored-resume.md
+    pattern: "Acme Corp|FakeEmployer|Invented Labs"
+    severity: hard
+
+  - name: employers_from_fixture
+    type: strings_subset_of_fixture
+    path: artifacts/tailored-resume.md
+    fixture: fixtures/sample-resume.md
+    strings:
+      - Northwind Labs
+      - Contoso Retail
+    severity: soft
+
+  - name: outreach_exists
+    type: file_exists
+    path: artifacts/outreach-draft.md
+    severity: hard
+
+  - name: outreach_not_sent
+    type: regex_absent
+    path: artifacts/outreach-draft.md
+    pattern: "email sent|I sent|message delivered|successfully sent"
+    severity: hard
+
+  - name: tracker_exists
+    type: file_exists
+    path: artifacts/tracker-snippet.md
+    severity: hard
+
+  - name: tracker_researching
+    type: status_in
+    path: artifacts/tracker-snippet.md
+    allowed:
+      - researching
+      - drafted
+      - sent
+      - interview
+      - offer
+      - rejected
+      - withdrawn
+    require_any:
+      - researching
+    severity: hard
+
+  - name: no_apply_posts
+    type: log_count
+    path: logs/apply-attempts.log
+    equals: 0
+    severity: hard
+
+  - name: no_phone_in_outreach
+    type: no_phone_like
+    path: artifacts/outreach-draft.md
+    severity: soft

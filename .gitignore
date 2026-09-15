@@ -1,5 +1,6 @@
 .DS_Store
 *.log
+!testpacks/**/golden/**/*.log
 .env
 .env.*
 !.env.example
@@ -15,3 +16,8 @@ private/
 *.mobileprovision
 tracker.md
 master-resume.md
+testpacks/**/.harness-logs/
+__pycache__/
+*.egg-info/
+.venv/
+testkit/.venv/

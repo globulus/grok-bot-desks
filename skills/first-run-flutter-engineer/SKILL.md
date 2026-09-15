@@ -23,12 +23,13 @@ First message after the Bot is added, or the user says "set up" / "first run".
 3. Check FVM on the cloud computer (`fvm --version`). If missing, offer to install FVM **after yes**, then stop.
 4. If they want GitHub: Settings → Plugins → GitHub (or `@` the GitHub connector). Wait; do not scrape credentials.
 5. Confirm skills enabled: `flutter-pr-review`, `flutter-test-plan`, `mobile-release-hygiene`.
-6. Run a tiny dry task on **their** tree or `fixtures/sample-flutter-issue.md` from this plugin if they have no repo yet.
-7. Tell them standing rules live in the Bot description; tasks go in chat.
+6. Run a tiny dry task on **their** tree or `testpacks/flutter-mobile-engineer/fixtures/sample-flutter-issue.md` from this plugin if they have no repo yet.
+7. **Harness mode (preferred dogfood):** `python3 -m grok_bot_testkit serve --pack flutter-mobile-engineer`, then follow `testpacks/flutter-mobile-engineer/scenario.md`. Write evidence under `/workspace/flutter-desk/runs/<run-id>/`. Never push, open a PR, or POST `/github/comment`.
+8. Tell them standing rules live in the Bot description; tasks go in chat.
 
 ## Output
 
-A short checklist of what is connected, what is still missing, and the next command they can give (e.g. "review PR #12").
+A short checklist of what is connected, what is still missing, and the next command they can give (e.g. "review PR #12" or "run harness").
 
 ## Failure
 

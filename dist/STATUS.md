@@ -5,7 +5,7 @@
 - Public repo: https://github.com/globulus/grok-bot-desks
 - Intended owner: [globulus](https://github.com/globulus) — see [OWNERSHIP.md](../OWNERSHIP.md)
 - Grok Build catalog PR: https://github.com/xai-org/plugin-marketplace/pull/660
-- Fixture dry-runs: [fixtures/dry-runs/](../fixtures/dry-runs/)
+- Fixture dry-runs / golden packs: [testpacks/](../testpacks/) (see [testkit/README.md](../testkit/README.md))
 - Grokyard/X copy ready in this folder (needs x.ai share links)
 
 ## Needs the Grok Bot app (cannot be automated here)

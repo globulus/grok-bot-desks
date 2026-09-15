@@ -1,0 +1,18 @@
+id: flutter-mobile-engineer
+skills:
+  - first-run-flutter-engineer
+  - flutter-pr-review
+  - flutter-test-plan
+  - mobile-release-hygiene
+port: 8766
+evidence_root: /workspace/flutter-desk/runs
+artifacts:
+  pr_review: artifacts/pr-review.md
+  test_plan: artifacts/test-plan.md
+routes:
+  - path: /pr/sample
+    handler: static
+    file: sample-pr.html
+  - path: /github/comment
+    handler: log_post
+    log: github-posts.log

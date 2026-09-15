@@ -35,8 +35,11 @@ Install skills from https://github.com/globulus/grok-bot-desks
 Enable: first-run-bug-repro, repro-from-ticket, repro-from-screenshot, write-repro-pack.
 
 Run first-run-bug-repro. For the dry run, do not log into any live product.
-Use fixtures/sample-flutter-issue.md and fixtures/sample-screenshot-notes.md as the ticket + screenshot substitute.
+Prefer harness mode from testpacks/bug-repro-desk/scenario.md
+(python3 -m grok_bot_testkit serve --pack bug-repro-desk).
+Otherwise use testpacks/bug-repro-desk/fixtures/sample-flutter-issue.md and sample-screenshot-notes.md.
 Produce a write-repro-pack. Mark environment unknown/staging-not-connected. Do not post to GitHub.
+Write an evidence pack under /workspace/bug-repro/runs/ when using the harness.
 ```
 
 ## Save-as-skill prompt

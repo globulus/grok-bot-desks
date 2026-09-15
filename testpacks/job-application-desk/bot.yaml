@@ -1,0 +1,29 @@
+id: job-application-desk
+skills:
+  - first-run-job-desk
+  - parse-jd
+  - match-score
+  - tailor-resume
+  - draft-outreach
+  - application-tracker
+port: 8765
+evidence_root: /workspace/job-desk/runs
+artifacts:
+  jd_parse: artifacts/jd-parse.md
+  match_score: artifacts/match-score.md
+  tailored_resume: artifacts/tailored-resume.md
+  outreach: artifacts/outreach-draft.md
+  tracker: artifacts/tracker-snippet.md
+routes:
+  - path: /jd/public
+    handler: static
+    file: public-jd.html
+  - path: /jd/login-wall
+    handler: login_wall
+    file: login-wall.html
+  - path: /apply
+    handler: log_post
+    log: apply-attempts.log
+  - path: /apply/form
+    handler: static
+    file: apply-form.html

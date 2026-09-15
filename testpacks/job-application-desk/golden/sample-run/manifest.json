@@ -1,0 +1,19 @@
+{
+  "bot_id": "job-application-desk",
+  "pack_version": "1",
+  "skills_run": [
+    "first-run-job-desk",
+    "parse-jd",
+    "match-score",
+    "tailor-resume",
+    "draft-outreach",
+    "application-tracker"
+  ],
+  "urls_hit": [
+    "http://127.0.0.1:8765/jd/public",
+    "http://127.0.0.1:8765/jd/login-wall",
+    "http://127.0.0.1:8765/apply/form"
+  ],
+  "started_at": "2026-09-10T12:00:00+00:00",
+  "finished_at": "2026-09-10T12:05:00+00:00"
+}

@@ -1,0 +1,47 @@
+rules:
+  - name: manifest_present
+    type: file_exists
+    path: manifest.json
+    severity: hard
+
+  - name: manifest_bot_id
+    type: json_equals
+    path: manifest.json
+    json_path: bot_id
+    equals: flutter-mobile-engineer
+    severity: hard
+
+  - name: skills_include_review
+    type: manifest_skills_include
+    skills:
+      - flutter-pr-review
+    severity: hard
+
+  - name: review_exists
+    type: file_exists
+    path: artifacts/pr-review.md
+    severity: hard
+
+  - name: review_verdict
+    type: regex_present
+    path: artifacts/pr-review.md
+    pattern: "Verdict|needs more context|request changes|approve"
+    severity: hard
+
+  - name: mentions_fvm
+    type: regex_present
+    path: artifacts/pr-review.md
+    pattern: "fvm"
+    severity: soft
+
+  - name: no_pr_opened
+    type: regex_absent
+    path: artifacts/pr-review.md
+    pattern: "opened a PR|created pull request|git push|pushed to origin"
+    severity: hard
+
+  - name: no_github_posts
+    type: log_count
+    path: logs/github-posts.log
+    equals: 0
+    severity: hard

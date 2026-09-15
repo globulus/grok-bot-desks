@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Fixture PR — counter tap flaky</title>
+</head>
+<body>
+  <h1>PR (fixture): fix counter first-tap no-op</h1>
+  <p>Not a real GitHub PR. Review from this page + the sample ticket only.</p>
+  <h2>Ticket summary</h2>
+  <p>Counter text does not update after tapping + on iOS simulator. See plugin fixtures.</p>
+  <h2>Diff (stand-in)</h2>
+  <pre><code>// lib/main.dart (fixture excerpt)
+onPressed: () async {
+  await Future&lt;void&gt;.delayed(Duration.zero);
+  setState(() =&gt; _counter++); // missing mounted check — hypothetical
+}
+</code></pre>
+  <p>Do not open a real PR. Do not post review comments to <code>/github/comment</code>.</p>
+</body>
+</html>

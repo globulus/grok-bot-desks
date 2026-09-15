@@ -1,0 +1,16 @@
+{
+  "bot_id": "bug-repro-desk",
+  "pack_version": "1",
+  "skills_run": [
+    "first-run-bug-repro",
+    "repro-from-ticket",
+    "repro-from-screenshot",
+    "write-repro-pack"
+  ],
+  "urls_hit": [
+    "http://127.0.0.1:8767/staging/",
+    "http://127.0.0.1:8767/staging/counter"
+  ],
+  "started_at": "2026-09-10T12:00:00+00:00",
+  "finished_at": "2026-09-10T12:05:00+00:00"
+}

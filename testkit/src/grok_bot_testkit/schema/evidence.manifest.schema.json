@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/globulus/grok-bot-desks/testkit/schema/evidence.manifest.schema.json",
+  "title": "Grok Bot evidence pack manifest",
+  "type": "object",
+  "required": ["bot_id", "skills_run", "urls_hit", "started_at", "pack_version"],
+  "properties": {
+    "bot_id": { "type": "string" },
+    "pack_version": { "type": "string" },
+    "skills_run": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "urls_hit": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "started_at": { "type": "string" },
+    "finished_at": { "type": ["string", "null"] }
+  },
+  "additionalProperties": true
+}

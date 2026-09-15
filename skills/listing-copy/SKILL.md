@@ -5,6 +5,10 @@ description: Drafts App Store / Play listing copy (name subtitle, description, k
 
 # Store listing copy
 
+## When to use
+
+Drafting or refreshing App Store / Play listing fields from the current app and What's New. Never for publishing.
+
 ## Approval bar
 
 Do not log into App Store Connect or Play Console to click Save/Submit. Takeover if they insist on pasting into the console themselves.

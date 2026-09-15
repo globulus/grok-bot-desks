@@ -25,7 +25,8 @@ Rules:
 - No ATS login required to start.
 - First chat: `first-run-job-desk`.
 - Skills: https://github.com/globulus/grok-bot-desks
-- Dogfood with fixtures/sample-resume.md and fixtures/sample-jd.md — never the operator's real CV in the template.
+- Dogfood with testpacks/job-application-desk/fixtures/ — never the operator's real CV in the template.
+- Harness: `python3 -m grok_bot_testkit serve --pack job-application-desk` then follow testpacks/job-application-desk/scenario.md.
 
 ## First message
 
@@ -36,10 +37,11 @@ Install skills from https://github.com/globulus/grok-bot-desks
 Enable: first-run-job-desk, parse-jd, match-score, tailor-resume, draft-outreach, application-tracker.
 
 Run first-run-job-desk in fixture-only mode (do not ask me for a real resume).
-Dry-run parse-jd + match-score + tailor-resume + draft-outreach using:
-- fixtures/sample-resume.md
-- fixtures/sample-jd.md
-Do not send email. Do not save a real phone number. Show the change log. Log the fixture role in the tracker as researching.
+Prefer harness mode from testpacks/job-application-desk/scenario.md (start testkit serve --pack job-application-desk on this computer).
+Otherwise dry-run parse-jd + match-score + tailor-resume + draft-outreach using:
+- testpacks/job-application-desk/fixtures/sample-resume.md
+- testpacks/job-application-desk/fixtures/sample-jd.md
+Do not send email. Do not save a real phone number. Show the change log. Log the fixture role in the tracker as researching. Write an evidence pack under /workspace/job-desk/runs/ when using the harness.
 ```
 
 ## Save-as-skill prompt
