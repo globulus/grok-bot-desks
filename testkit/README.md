@@ -80,12 +80,44 @@ Set `severity: soft` for warnings; default is `hard` (fails the score).
 
 ## Operator e2e loop
 
-1. Clone this plugin on the Bot computer
-2. `python3 -m pip install -e ./testkit` (or set `PYTHONPATH`)
-3. `python3 -m grok_bot_testkit serve --pack <bot-id>`
-4. Paste `testpacks/<bot-id>/scenario.md` into the Bot
-5. Copy the run directory out
-6. `python3 -m grok_bot_testkit score --pack <bot-id> path/to/run`
+CI cannot open the Grok Bot app. You run mocks on the Bot’s **cloud** computer, paste a scenario in chat, then score the evidence pack locally.
+
+### 1. Open the Bot and Agent Computer
+
+1. In the [Grok Bot app](https://docs.x.ai/grok-bot/get-started), open or create the Bot ([create/manage Bots](https://docs.x.ai/grok-bot/bots)).
+2. From the conversation, open **Agent Computer** ([computer and apps](https://docs.x.ai/grok-bot/computer-and-apps)).
+3. That desktop is shared across your Bots. `127.0.0.1` in scenarios is localhost **there**, not on your laptop.
+
+### 2. Install and serve on the Bot computer
+
+Clone this plugin onto the cloud computer (e.g. under `/workspace`), then:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -e ./testkit
+python3 -m grok_bot_testkit serve --pack job-application-desk
+```
+
+Leave the server running. Ports: job-application-desk `8765`, flutter-mobile-engineer `8766`, bug-repro-desk `8767`.
+
+### 3. Paste the scenario
+
+Paste `testpacks/<bot-id>/scenario.md` into the Bot chat (or the First message from `bots/<desk>.md`, which points at harness mode).
+
+The Bot should hit the mock sites, refuse unsafe actions, and write an evidence pack under that pack’s `evidence_root`.
+
+### 4. Score the evidence pack
+
+Copy `{evidence_root}/<run-id>/` off Agent Computer, then on your machine:
+
+```bash
+python3 -m grok_bot_testkit score --pack <bot-id> path/to/run
+```
+
+Exit 0 = pass. Soft rules print as warnings; hard rules fail the score.
+
+Also in the root [README](../README.md): create Bot, Agent Computer, and e2e overview.
 
 ## Adding a fourth bot
 

@@ -18,7 +18,7 @@ Wave 2 (App Store Ship + backlog): [wave2/README.md](wave2/README.md).
 
 **Grok Build:** clone, then add the folder as a plugin directory, or install from a marketplace entry when the [xai-org/plugin-marketplace](https://github.com/xai-org/plugin-marketplace) PR lands.
 
-**Grok Bot:** create a Bot, paste the standing rules from `bots/<desk>.md`, clone this repo onto the Bot computer (or install the plugin), enable the listed skills, send the "First message" from that file.
+**Grok Bot:** see [Create a Bot](#create-a-bot-in-the-grok-bot-app) below.
 
 ```text
 plugin.json
@@ -29,30 +29,69 @@ testpacks/     # per-bot fixtures, mock sites, scenarios, rubrics
 dist/          # Grokyard, X, marketplace submission text
 ```
 
-## Test harness
+## Create a Bot in the Grok Bot app
 
-Generic library + per-bot packs: [testkit/README.md](testkit/README.md).
+Requires the [Grok Bot](https://docs.x.ai/grok-bot/get-started) desktop or mobile app (not grok.com chat alone). Docs: [Create and manage Bots](https://docs.x.ai/grok-bot/bots).
+
+1. Open **Grok Bot** and sign in with your Cursor account.
+2. **New** (or `Cmd/Ctrl+N`) → **Create new agent**.
+3. **Bot actions → Edit Profile**: name, title, description, and avatar from the matching file in [`bots/`](bots/) (e.g. [`bots/job-application-desk.md`](bots/job-application-desk.md)).
+4. Enable the skills listed in that file (clone this repo onto the Bot computer, or install the plugin).
+5. Paste the **First message** from that file into the chat, or the harness block from `testpacks/<bot-id>/scenario.md`.
+
+To reopen an existing Bot: select it in the sidebar (or **Show hidden chats** if you hid it).
+
+After a good dry run: **Share as template** → strip secrets (checklists in each bot file) → paste the public x.ai link into [`dist/SHARE_LINKS.md`](dist/SHARE_LINKS.md) → add the template on a fresh Bot copy and confirm first-run still works.
+
+Do not enable routines in wave 1. More detail: [`bots/README.md`](bots/README.md).
+
+## Access the Bot computer (Agent Computer)
+
+Bots run on a **shared cloud computer** (browser, filesystem, terminal)—not your laptop by default. All Bots on your account share that computer (`/workspace`, browser sessions, logins). Docs: [Use the computer and apps](https://docs.x.ai/grok-bot/computer-and-apps).
+
+1. Open the Bot conversation in the Grok Bot app.
+2. Open **Agent Computer** from that conversation to view the cloud desktop.
+3. Ask the Bot to run terminal commands there, or use **takeover** when you need to type a password, passkey, 2FA, or CAPTCHA yourself, then return control.
+
+Local Mac/Windows execution is separate (**Settings → General → Agent → Execution on Local Computer**) and is not required for the harness. `127.0.0.1` in harness URLs means localhost **on the cloud computer**, not your laptop.
+
+## End-to-end test (harness)
+
+CI cannot drive the Grok Bot app. E2E is: Bot app + mock server on Agent Computer + scenario paste + score the evidence pack. Full kit docs: [testkit/README.md](testkit/README.md).
+
+| Pack | Port | Scenario |
+|------|------|----------|
+| `job-application-desk` | 8765 | [`testpacks/job-application-desk/scenario.md`](testpacks/job-application-desk/scenario.md) |
+| `flutter-mobile-engineer` | 8766 | [`testpacks/flutter-mobile-engineer/scenario.md`](testpacks/flutter-mobile-engineer/scenario.md) |
+| `bug-repro-desk` | 8767 | [`testpacks/bug-repro-desk/scenario.md`](testpacks/bug-repro-desk/scenario.md) |
+
+**On the Bot computer** (Agent Computer / ask the Bot to run this):
+
+```bash
+# clone if needed, then from the plugin root:
+python3 -m venv .venv && source .venv/bin/activate
+python3 -m pip install -e ./testkit
+python3 -m grok_bot_testkit serve --pack job-application-desk
+```
+
+Leave `serve` running. In the Bot chat, paste the matching `testpacks/<bot-id>/scenario.md`. The Bot should write an evidence pack under that pack’s `evidence_root` (e.g. `/workspace/job-desk/runs/harness-1/`).
+
+**On your laptop** (or anywhere you can run Python), after copying the run folder out:
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
 python3 -m pip install -e ./testkit
-python3 -m grok_bot_testkit validate
-python3 -m grok_bot_testkit serve --pack job-application-desk
-python3 -m grok_bot_testkit score --pack job-application-desk testpacks/job-application-desk/golden/sample-run
+python3 -m grok_bot_testkit score --pack job-application-desk path/to/harness-1
 ```
 
-## Create the three Bots (Grok Bot app)
+Pass = rubric green (structure + safety). Compare tone to `testpacks/<bot-id>/fixtures/dry-run-example.md` and [testpacks/expected-dry-run.md](testpacks/expected-dry-run.md).
 
-Requires the [Grok Bot](https://docs.x.ai/grok-bot/bots) app.
+**Structural CI only** (no Bot app):
 
-1. New → Create new agent.
-2. Bot actions → Edit Profile: name, title, description from `bots/*.md`.
-3. Paste the **First message** from that file (it clones https://github.com/globulus/grok-bot-desks).
-4. Prefer harness mode (`testpacks/<bot-id>/scenario.md`) until the dry run matches [testpacks/expected-dry-run.md](testpacks/expected-dry-run.md) and `score` passes on the evidence pack.
-5. Share as template → strip secrets (checklists in each bot file) → copy the public x.ai link into `dist/SHARE_LINKS.md`.
-6. Add the template on a fresh Bot copy and confirm first-run still works.
-
-Do not enable routines in wave 1.
+```bash
+python3 -m grok_bot_testkit validate
+python3 -m grok_bot_testkit score --pack job-application-desk testpacks/job-application-desk/golden/sample-run
+```
 
 ## Approval bar (all desks)
 
