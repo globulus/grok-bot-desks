@@ -34,6 +34,6 @@ python3 scripts/validate-catalog.py
 python3 scripts/generate-plugin-index.py --check
 ```
 
-Pin `sha` to `2a1f00093e2d99e51e3eef9224f306150f6b0553` (current `main`).
+Pin `sha` to `06494f201bb2263c1a958d78c152394c819fde96` (current `main` as of 2026-09-15).
 
-Grok Build PR (in flight): https://github.com/xai-org/plugin-marketplace/pull/660
+Grok Build PR: https://github.com/xai-org/plugin-marketplace/pull/728 (replaces closed [#660](https://github.com/xai-org/plugin-marketplace/pull/660)).
