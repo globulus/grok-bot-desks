@@ -12,7 +12,7 @@ The user pastes a JD or a public posting link. First step before `match-score`.
 ## Approval bar
 
 - Do not log into LinkedIn, Greenhouse, Lever, or email.
-- If the posting requires login, ask the user to paste the text.
+- If the posting requires login, ask the user to paste the text. During `job-inbox-cycle`, skip that URL and list it as paste-needed instead of blocking the rest of the cycle.
 - Cite quotes from the posting; do not invent requirements.
 
 ## Sequence

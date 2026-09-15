@@ -1,6 +1,6 @@
 {
   "name": "grok-bot-desks",
-  "description": "Flutter Mobile Engineer, Bug Repro Desk, and Job Application Desk skills. Never send, merge, submit, or invent facts without an explicit yes.",
+  "description": "Flutter Mobile Engineer, Bug Repro Desk, and Job Application Desk skills. Never send, merge, submit, or invent facts without an explicit yes (job desk: named queue IDs).",
   "version": "1.0.0",
   "author": {
     "name": "Gordan Glavaš",

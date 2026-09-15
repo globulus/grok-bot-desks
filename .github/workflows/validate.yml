@@ -21,5 +21,6 @@ jobs:
         run: |
           set -e
           python3 -m grok_bot_testkit score --pack job-application-desk testpacks/job-application-desk/golden/sample-run
+          python3 -m grok_bot_testkit score --pack job-application-desk --rubric rubric-inbox.yaml testpacks/job-application-desk/golden/inbox-run
           python3 -m grok_bot_testkit score --pack flutter-mobile-engineer testpacks/flutter-mobile-engineer/golden/sample-run
           python3 -m grok_bot_testkit score --pack bug-repro-desk testpacks/bug-repro-desk/golden/sample-run

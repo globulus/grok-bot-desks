@@ -18,7 +18,7 @@ Add: <SHARE_URL>
 
 ## Job Application Desk
 
-Job Application Desk scores a JD against your resume with evidence, tailors bullets without inventing facts, and drafts outreach. Never applies or emails without you. Your resume stays on your computer.
+Job Application Desk scores a JD against your resume with evidence, tailors bullets without inventing facts, and can pull public postings on a weekday digest. Sends or submits only queue IDs you name. Your resume stays on your computer.
 
 https://github.com/globulus/grok-bot-desks
 Add: <SHARE_URL>

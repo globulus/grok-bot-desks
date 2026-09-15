@@ -1,0 +1,25 @@
+{
+  "bot_id": "job-application-desk",
+  "pack_version": "1",
+  "skills_run": [
+    "first-run-job-desk",
+    "job-sources",
+    "job-inbox-cycle",
+    "parse-jd",
+    "match-score",
+    "tailor-resume",
+    "draft-outreach",
+    "application-tracker",
+    "execute-approved-applications"
+  ],
+  "urls_hit": [
+    "http://127.0.0.1:8765/jobs/",
+    "http://127.0.0.1:8765/jobs.rss",
+    "http://127.0.0.1:8765/jd/public",
+    "http://127.0.0.1:8765/jd/cobol",
+    "http://127.0.0.1:8765/jd/login-wall",
+    "http://127.0.0.1:8765/apply/form"
+  ],
+  "started_at": "2026-09-15T12:00:00+00:00",
+  "finished_at": "2026-09-15T12:25:00+00:00"
+}

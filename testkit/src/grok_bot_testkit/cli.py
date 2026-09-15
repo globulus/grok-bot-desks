@@ -34,6 +34,11 @@ def build_parser() -> argparse.ArgumentParser:
 
     score_p = sub.add_parser("score", help="Score an evidence run directory")
     score_p.add_argument("--pack", required=True, help="Testpack id")
+    score_p.add_argument(
+        "--rubric",
+        default=None,
+        help="Rubric filename under the testpack, or a path (default: rubric.yaml)",
+    )
     score_p.add_argument("run_dir", type=Path, help="Path to evidence run directory")
 
     list_p = sub.add_parser("list-packs", help="List testpack ids")
@@ -64,7 +69,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.command == "score":
-        report = score_run(args.pack, args.run_dir, root=root)
+        report = score_run(args.pack, args.run_dir, root=root, rubric=args.rubric)
         print_report(report)
         return 0 if report.ok else 1
 

@@ -6,7 +6,7 @@ Agent Plugin (skills) for three [Grok Bot](https://x.ai/bot/marketplace) templat
 | ---------------------------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Flutter Mobile Engineer](bots/flutter-mobile-engineer.md) | Engineering | Reviews Flutter PRs, writes an `fvm`-first test plan, and flags iOS/Android release hygiene. Works from a repo or a pasted diff, and never opens a PR without you.                                   |
 | [Bug Repro Desk](bots/bug-repro-desk.md)                   | Engineering | Turns a ticket or screenshot into a repro pack: exact steps, expected vs actual, env, and screenshots. Uses staging and a fresh test account. Never production customer data.                        |
-| [Job Application Desk](bots/job-application-desk.md)       | Personal    | Turns a pasted job description into a match score with evidence, a tailored resume, and a first-message draft. Works from a paste or a public posting link, and never applies or emails without you. |
+| [Job Application Desk](bots/job-application-desk.md)       | Personal    | Turns a job description into a match score with evidence, a tailored resume, and a first-message draft. Optional weekday inbox from public sources. Sends or submits only named queue IDs. |
 
 Share links (filled after you publish templates in the Grok Bot app): [dist/SHARE_LINKS.md](dist/SHARE_LINKS.md).
 
@@ -43,7 +43,7 @@ To reopen an existing Bot: select it in the sidebar (or **Show hidden chats** if
 
 After a good dry run: **Share as template** → strip secrets (checklists in each bot file) → paste the public x.ai link into [`dist/SHARE_LINKS.md`](dist/SHARE_LINKS.md) → add the template on a fresh Bot copy and confirm first-run still works.
 
-Do not enable routines in wave 1. More detail: [`bots/README.md`](bots/README.md).
+Flutter and Bug Repro desks: do not enable routines. Job Application Desk may add a weekday `job-inbox-cycle` routine after `sources.md` has a public/rss row; send/submit still needs named queue IDs. More detail: [`bots/README.md`](bots/README.md).
 
 ## Access the Bot computer (Agent Computer)
 
@@ -61,7 +61,7 @@ CI cannot drive the Grok Bot app. E2E is: Bot app + mock server on Agent Compute
 
 | Pack | Port | Scenario |
 |------|------|----------|
-| `job-application-desk` | 8765 | [`testpacks/job-application-desk/scenario.md`](testpacks/job-application-desk/scenario.md) |
+| `job-application-desk` | 8765 | [`scenario.md`](testpacks/job-application-desk/scenario.md) (zero POSTs) · [`scenario-inbox.md`](testpacks/job-application-desk/scenario-inbox.md) (one named-ID POST) |
 | `flutter-mobile-engineer` | 8766 | [`testpacks/flutter-mobile-engineer/scenario.md`](testpacks/flutter-mobile-engineer/scenario.md) |
 | `bug-repro-desk` | 8767 | [`testpacks/bug-repro-desk/scenario.md`](testpacks/bug-repro-desk/scenario.md) |
 
@@ -91,11 +91,12 @@ Pass = rubric green (structure + safety). Compare tone to `testpacks/<bot-id>/fi
 ```bash
 python3 -m grok_bot_testkit validate
 python3 -m grok_bot_testkit score --pack job-application-desk testpacks/job-application-desk/golden/sample-run
+python3 -m grok_bot_testkit score --pack job-application-desk --rubric rubric-inbox.yaml testpacks/job-application-desk/golden/inbox-run
 ```
 
 ## Approval bar (all desks)
 
-Never send, spend, merge, submit to stores, or invent employment facts without an explicit yes. Job Application resume/tracker files stay on the installer's computer and must not copy with the template.
+Never send, spend, merge, submit to stores, or invent employment facts without an explicit yes. For Job Application Desk, that yes is a named queue ID list (`approve: q-003`), not approve-all. Resume, tracker, sources, and queue stay on the installer's computer and must not copy with the template.
 
 ## License
 

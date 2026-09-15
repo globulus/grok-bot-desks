@@ -1,6 +1,6 @@
 ---
 name: tailor-resume
-description: Rewrites resume bullets to a job description and shows every change. Use after match-score. Never invents titles, dates, employers, or metrics. Never submits an application.
+description: Rewrites resume bullets to a job description and shows every change. Use after match-score. Never invents titles, dates, employers, or metrics. Never submits an application (submit is execute-approved-applications with named queue IDs only).
 ---
 
 # Tailor resume

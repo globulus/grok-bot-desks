@@ -17,7 +17,7 @@ Category: Engineering
 
 ## Job Application Desk
 
-Turns a pasted job description into a match score with evidence, a tailored resume, and a first-message draft. Works from a paste or a public posting link, and never applies or emails without you.
+Turns a job description into a match score with evidence, a tailored resume, and a first-message draft. Optional weekday inbox from public sources. Sends or submits only named queue IDs (`approve: q-003`). Never invents facts.
 
 Category: Personal
-Privacy: installer resume and tracker do not copy with the template.
+Privacy: installer resume, tracker, sources, and queue do not copy with the template.

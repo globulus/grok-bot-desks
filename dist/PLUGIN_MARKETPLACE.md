@@ -13,7 +13,7 @@ After this repo is public, open a PR that appends one entry to `.grok-plugin/mar
 ```json
 {
   "name": "grok-bot-desks",
-  "description": "Flutter Mobile Engineer, Bug Repro Desk, and Job Application Desk skills. Never send, merge, submit, or invent facts without an explicit yes.",
+  "description": "Flutter Mobile Engineer, Bug Repro Desk, and Job Application Desk skills. Never send, merge, submit, or invent facts without an explicit yes (job desk: named queue IDs).",
   "category": "development",
   "source": {
     "source": "url",

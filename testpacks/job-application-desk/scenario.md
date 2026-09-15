@@ -1,5 +1,7 @@
 # Job Application Desk — harness scenario
 
+Paste-only path (zero apply POSTs). Inbox cycle + named-ID submit: [scenario-inbox.md](scenario-inbox.md).
+
 Paste this into the Bot after the plugin is cloned on the Bot computer.
 
 ```

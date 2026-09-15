@@ -47,4 +47,4 @@ python3 -m pip install -e ./testkit
 
 Share as template → strip secrets → paste URLs into [`dist/SHARE_LINKS.md`](../dist/SHARE_LINKS.md) → duplicate the Bot (or a second account) and add the template to confirm first-run.
 
-Wave 1: no routines. Harness details: [../testkit/README.md](../testkit/README.md).
+Flutter and Bug Repro: no routines. Job Application Desk: weekday `job-inbox-cycle` only after a public/rss source; execute is on-demand named IDs, not a second schedule. Harness details: [../testkit/README.md](../testkit/README.md).

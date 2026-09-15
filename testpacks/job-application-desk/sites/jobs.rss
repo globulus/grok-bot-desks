@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Harness job RSS (fixture)</title>
+    <link>http://127.0.0.1:8765/jobs/</link>
+    <description>Fixture feed. ExampleCorp duplicates the HTML listing so job-inbox-cycle must dedupe.</description>
+    <item>
+      <title>Senior Flutter Engineer — ExampleCorp</title>
+      <link>http://127.0.0.1:8765/jd/public</link>
+      <guid>http://127.0.0.1:8765/jd/public</guid>
+      <description>Production Flutter on iOS and Android. Same posting as /jd/public.</description>
+    </item>
+    <item>
+      <title>Principal COBOL Engineer — DecoyBank</title>
+      <link>http://127.0.0.1:8765/jd/cobol</link>
+      <guid>http://127.0.0.1:8765/jd/cobol</guid>
+      <description>COBOL/CICS on z/OS. Weak match for the fixture Flutter resume.</description>
+    </item>
+  </channel>
+</rss>

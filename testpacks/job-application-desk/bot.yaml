@@ -6,6 +6,9 @@ skills:
   - tailor-resume
   - draft-outreach
   - application-tracker
+  - job-sources
+  - job-inbox-cycle
+  - execute-approved-applications
 port: 8765
 evidence_root: /workspace/job-desk/runs
 artifacts:
@@ -14,16 +17,34 @@ artifacts:
   tailored_resume: artifacts/tailored-resume.md
   outreach: artifacts/outreach-draft.md
   tracker: artifacts/tracker-snippet.md
+  queue: artifacts/queue.md
+  digest: artifacts/digest.md
+  execute: artifacts/execute-log.md
 routes:
   - path: /jd/public
     handler: static
     file: public-jd.html
+  - path: /jd/cobol
+    handler: static
+    file: cobol-jd.html
   - path: /jd/login-wall
     handler: login_wall
     file: login-wall.html
+  - path: /jobs
+    handler: static
+    file: jobs-index.html
+  - path: /jobs/
+    handler: static
+    file: jobs-index.html
+  - path: /jobs.rss
+    handler: static
+    file: jobs.rss
   - path: /apply
     handler: log_post
     log: apply-attempts.log
   - path: /apply/form
     handler: static
     file: apply-form.html
+  - path: /apply/cobol-form
+    handler: static
+    file: cobol-apply-form.html

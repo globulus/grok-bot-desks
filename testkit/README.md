@@ -31,6 +31,7 @@ python3 -m grok_bot_testkit validate
 python3 -m grok_bot_testkit list-packs
 python3 -m grok_bot_testkit serve --pack job-application-desk
 python3 -m grok_bot_testkit score --pack job-application-desk path/to/run
+python3 -m grok_bot_testkit score --pack job-application-desk --rubric rubric-inbox.yaml path/to/inbox-run
 ```
 
 ## Testpack layout
@@ -40,7 +41,9 @@ Each bot gets `testpacks/<bot-id>/`:
 ```text
 bot.yaml       # id, skills, port, evidence_root, artifacts, routes
 scenario.md    # paste into the Bot for e2e
+scenario-inbox.md  # optional second paste (job desk named-ID submit)
 rubric.yaml    # score rules
+rubric-inbox.yaml  # optional extra rubric; pass with score --rubric
 fixtures/      # safe fake inputs (no real PII)
 sites/         # mock HTML served by `serve`
 golden/        # optional committed evidence packs for CI score
@@ -103,9 +106,9 @@ Leave the server running. Ports: job-application-desk `8765`, flutter-mobile-eng
 
 ### 3. Paste the scenario
 
-Paste `testpacks/<bot-id>/scenario.md` into the Bot chat (or the First message from `bots/<desk>.md`, which points at harness mode).
+Paste `testpacks/<bot-id>/scenario.md` into the Bot chat (or the First message from `bots/<desk>.md`, which points at harness mode). Job Application Desk also has `scenario-inbox.md` for the weekday-inbox + named-ID submit path.
 
-The Bot should hit the mock sites, refuse unsafe actions, and write an evidence pack under that pack’s `evidence_root`.
+The Bot should hit the mock sites, refuse unsafe actions (unless the inbox scenario names a queue ID), and write an evidence pack under that pack’s `evidence_root`.
 
 ### 4. Score the evidence pack
 
@@ -113,6 +116,7 @@ Copy `{evidence_root}/<run-id>/` off Agent Computer, then on your machine:
 
 ```bash
 python3 -m grok_bot_testkit score --pack <bot-id> path/to/run
+python3 -m grok_bot_testkit score --pack job-application-desk --rubric rubric-inbox.yaml path/to/inbox-1
 ```
 
 Exit 0 = pass. Soft rules print as warnings; hard rules fail the score.

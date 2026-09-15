@@ -222,12 +222,30 @@ def _eval_rule(
         return RuleResult(name, severity, False, f"{rtype} error: {exc}")
 
 
-def score_run(bot_id: str, run_dir: Path, root: Path | None = None) -> ScoreReport:
+def _rubric_path(pack_path: Path, rubric: str | Path | None) -> Path:
+    if rubric is None:
+        return pack_path / "rubric.yaml"
+    given = Path(rubric)
+    if given.is_file():
+        return given
+    under_pack = pack_path / given
+    if under_pack.is_file():
+        return under_pack
+    return given
+
+
+def score_run(
+    bot_id: str,
+    run_dir: Path,
+    root: Path | None = None,
+    rubric: str | Path | None = None,
+) -> ScoreReport:
     run_dir = run_dir.resolve()
     pack_path = pack_dir(bot_id, root)
-    rubric = load_yaml(pack_path / "rubric.yaml")
-    if not isinstance(rubric, dict) or "rules" not in rubric:
-        raise ValueError(f"{pack_path / 'rubric.yaml'}: must contain 'rules' list")
+    rubric_file = _rubric_path(pack_path, rubric)
+    rubric_data = load_yaml(rubric_file)
+    if not isinstance(rubric_data, dict) or "rules" not in rubric_data:
+        raise ValueError(f"{rubric_file}: must contain 'rules' list")
 
     manifest = None
     manifest_path = run_dir / "manifest.json"
@@ -235,7 +253,7 @@ def score_run(bot_id: str, run_dir: Path, root: Path | None = None) -> ScoreRepo
         manifest = read_manifest(run_dir)
 
     report = ScoreReport(bot_id=bot_id, run_dir=run_dir)
-    for rule in rubric["rules"]:
+    for rule in rubric_data["rules"]:
         report.results.append(
             _eval_rule(rule, run_dir=run_dir, pack_path=pack_path, manifest=manifest)
         )
